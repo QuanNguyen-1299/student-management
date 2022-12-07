@@ -4,13 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/sass/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Login</title>
 </head>
 
-<body>
+<body id="login-body">
     <%- include ('layouts/genneral.ejs') -%>
-       
+        <div id="login-page">
+            <div class="container">
+                <h3 class="title text-center">Please login for use Student Management</h3>
+                <div class="login-content d-flex">
+                    <div class="login-box">
+                        <form action="/login" method="post">
+                            <div class="mb-3 from-group">
+                                <label for="userName" class="form-label">User Name</label>
+                                <input type="text" autocomplete="username" class="form-control" id="userName"
+                                    name="username" required>
+                            </div>
+                            <div class="mb-3 from-group">
+                                <label for="inputPassword" class="form-label">Password</label>
+                                <input type="password" autocomplete="current-password" class="form-control"
+                                    id="inputPassword" name="password" required>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="check">
+                                <label class="form-check-label" for="check">Check me out</label>
+                                <div class="register">
+                                    <p class="register-prefix">If you don't have an account</p>
+                                    <a class="register-content" href="/register">Register</a>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Log In</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>

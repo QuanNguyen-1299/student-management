@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <%- include ('layouts/genneral.ejs') -%>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link">Features</a>
+                        <a class="nav-link">Pricing</a>
+                        <a class="nav-link">Disabled</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="student-list">
+            <div class="container border-list">
+                <div class="student-list--table">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Họ và Tên</th>
+                                <th scope="col">Giới tính</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Nguyễn Trung Dũng</th>
+                                <td>Nam</td>
+                                <td>113/30 đường số 1</td>
+                                <td>trungdung@gmail.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
