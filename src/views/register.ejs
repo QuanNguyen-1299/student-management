@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Home Page</title>
+</head>
+
+<body id="register-body">
+    <%- include ('layouts/genneral.ejs') -%>
+        <div id="register">
+            <div class="container">
+                <div class="register-guide">
+                    <h5>Please enter the username and password, then click Submit to be able to log in</h5>
+                </div>
+                <div class="register-content d-flex">
+                    <div class="register-content__box">
+                        <h5 class="tittle text-center">Register</h5>
+                        <form action="/registered" method="post">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username"
+                                    autocomplete="username" name="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password"
+                                    autocomplete="current-password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-success text-center">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

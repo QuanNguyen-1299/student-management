@@ -1,0 +1,70 @@
+#login-body {
+  background-image: url(../img/bg-login.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+#login-page {
+  margin-top: 130px;
+}
+#login-page .title {
+  color: white;
+  opacity: 0.9;
+}
+#login-page .login-content {
+  justify-content: center;
+}
+#login-page .login-content .login-box {
+  width: 450px;
+  max-width: 500px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: white;
+  opacity: 0.7;
+  box-shadow: 2px 2px 10px black;
+}
+#login-page .login-content .form-check .register {
+  float: right;
+}
+#login-page .login-content .form-check .register-prefix {
+  margin-bottom: 0px;
+}
+#login-page .login-content .form-check .register-content {
+  margin-left: 65px;
+  color: var(--bs-body-color);
+  text-decoration: none;
+}
+#login-page .login-content .form-check .register-content:hover {
+  text-decoration: underline;
+}
+
+#register-body {
+  background-image: url(../img/bg-register.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+#register {
+  margin-top: 130px;
+}
+#register .register-guide {
+  text-align: center;
+  color: azure;
+  margin-bottom: 20px;
+}
+#register .register-content {
+  justify-content: center;
+}
+#register .register-content__box {
+  width: 450px;
+  max-width: 500px;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: white;
+  opacity: 0.7;
+  box-shadow: 2px 2px 10px black;
+}
+
+/*# sourceMappingURL=styles.css.map */
