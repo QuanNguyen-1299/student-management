@@ -1,0 +1,148 @@
+.controller-table {
+    margin: 20px 0px;
+
+    &__option {
+        .search-student {
+            .form-control {
+                width: 300px;
+                margin-right: 20px;
+            }
+
+            .btn-create {
+                margin-left: 20px;
+                height: fit-content;
+            }
+            .btn-restart {
+                @extend .btn-create
+            }
+        }
+    }
+}
+
+.student-list {
+    .border-list {
+        border: 1px solid lightgrey;
+
+        .student-list--table {
+
+            .table {
+                .student-info {
+                    .info-item {
+                        padding-top: 10px;
+                    }
+
+                    .button-option {
+                        justify-content: end;
+
+                        form {
+                            margin-bottom: 0px;
+
+                            .btn {
+                                margin: 0px 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+html,
+body {
+    margin: 0px;
+    height: 100%;
+}
+
+.fade-layout {
+    display: none;
+
+    &.action {
+        display: block;
+        position: absolute;
+        z-index: 98;
+        width: 100vw;
+        height: 100%;
+        background-color: black;
+        opacity: 0.5;
+        animation: fadeIn 0.5s;
+    }
+}
+
+.create-new-student {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    display: none;
+
+    &.action {
+        display: block;
+        position: absolute;
+        z-index: 99;
+        top: 120px;
+        left: 550px;
+        transition: linear 0.5s;
+    }
+
+    .create-form {
+        margin-bottom: 0px;
+        padding: 13px;
+        width: 400px;
+
+        .btn-comeback {
+            float: right;
+
+            a {
+                text-decoration: none;
+                color: var(--bs-btn-color)
+            }
+        }
+
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.5;
+    }
+}
+
+.layout-opacity {
+    display: block;
+    position: absolute;
+    z-index: 98;
+    width: 100vw;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.edit-student {
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 99;
+    top: 120px;
+    left: 550px;
+    transition: linear 0.5s;
+
+    .edit-form {
+        margin-bottom: 0px;
+        padding: 13px;
+        width: 400px;
+
+        .button-comeback {
+            float: right;
+
+            a {
+                text-decoration: none;
+                color: var(--bs-btn-color)
+            }
+        }
+    }
+}
