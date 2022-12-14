@@ -7,5 +7,4 @@ const pool = mysql.createPool({
   password: ''
 });
 
-
 export default pool;
