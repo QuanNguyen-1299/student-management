@@ -1,0 +1,28 @@
+#register-body {
+    background-image: url(../img/bg-register.jpg);
+    background-position: center;
+    background-size: cover;
+}
+#register {
+    margin-top: 130px;
+    .register-guide {
+        text-align: center;
+        color: azure;
+        margin-bottom: 20px;
+    }
+
+    .register-content {
+        justify-content: center;
+
+        &__box {
+            width: 450px;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 8px;
+            background-color: white;
+            opacity: 0.7;
+            box-shadow: 2px 2px 10px black;
+        }
+    }
+}
