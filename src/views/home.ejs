@@ -9,20 +9,74 @@
 </head>
 
 <body>
-    <%- include ('layouts/genneral.ejs') -%>
+    <%- include ('common/genneral.ejs') -%>
+        <div id="fade-in" class="fade-layout" onclick="!showCreateForm() || !showEditForm ()"></div>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="/home">Tổng quan học sinh</a>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        <a class="nav-link">Features</a>
-                        <a class="nav-link">Pricing</a>
-                        <a class="nav-link">Disabled</a>
                     </div>
                 </div>
             </div>
         </nav>
+        <div class="controller-table">
+            <div class="container">
+                <div class="row">
+                    <div class="controller-table__option d-flex">
+                        <div class="search-student col-7 d-flex">
+                            <form action="/home/search" method="get" class="form-search d-flex">
+                                <input class="form-control" type="text" placeholder="Tìm kiếm" name="nameStudent">
+                                <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                            </form>
+                            <button type="button" class="btn btn-success btn-create" onclick="showCreateForm()">
+                                Thêm học sinh</button>
+                            <form action="/home" method="get">
+                                <button type="submit" class="btn btn-warning btn-restart">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                        class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                        <path
+                                            d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                                    </svg>
+                                    Restart
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="create-new-student" id="create-form">
+            <form action="/create-new-student" method="post" class="create-form">
+                <div class="name from-group mb-3">
+                    <label for="name" class="form-label">Họ và Tên:</label><br>
+                    <input class="form-control" type="text" name="studentName">
+                </div>
+                <div class="gender from-group mb-3">
+                    <label for="gender" class="form-label">Giới tính:</label><br>
+                    <input class="form-control" type="text" name="studentGender">
+                </div>
+                <div class="birthday from-group mb-3">
+                    <label for="birthday" class="form-label">Ngày sinh:</label><br>
+                    <input class="form-control" type="text" name="studentBirth">
+                </div>
+                <div class="address from-group mb-3">
+                    <label for="address" class="form-label">Địa chỉ:</label><br>
+                    <input class="form-control" type="text" name="studentAddress">
+                </div>
+                <div class="email from-group mb-3">
+                    <label for="email" class="form-label">Email:</label><br>
+                    <input class="form-control" type="text" name="email">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Tạo mới</button>
+                <button type="submit" class="btn btn-warning btn-comeback">
+                    <a href="/home">Quay lại</a>
+                </button>
+            </form>
+        </div>
         <div class="student-list">
             <div class="container border-list">
                 <div class="student-list--table">
@@ -31,22 +85,54 @@
                             <tr>
                                 <th scope="col">Họ và Tên</th>
                                 <th scope="col">Giới tính</th>
+                                <th scope="col">Ngày sinh</th>
                                 <th scope="col">Địa chỉ</th>
                                 <th scope="col">Email</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">Nguyễn Trung Dũng</th>
-                                <td>Nam</td>
-                                <td>113/30 đường số 1</td>
-                                <td>trungdung@gmail.com</td>
-                            </tr>
+                        <tbody class="student-info">
+                            <% for(var i=0; i < dataStudent.length; i++) { %>
+                                <tr>
+                                    <td class="info-item">
+                                        <%= dataStudent[i].studentName %>
+                                    </td>
+                                    <td class="info-item">
+                                        <%= dataStudent[i].studentGender %>
+                                    </td>
+                                    <td class="info-item">
+                                        <%= dataStudent[i].studentBirthday %>
+                                    </td>
+                                    <td class="info-item">
+                                        <%= dataStudent[i].studentAddress %>
+                                    </td>
+                                    <td class="info-item">
+                                        <%= dataStudent[i].studentEmail %>
+                                    </td>
+                                    <td class="button-option d-flex">
+                                        <form action="/delete-student" method="post">
+                                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                                            <input type="text" hidden value="<%= dataStudent[i].id %>" name="studentId">
+                                        </form>
+                                        <form action="/update-student/<%= dataStudent[i].id %>" method="get">
+                                            <button type="submit" class="btn btn-info btn-sm">Chỉnh
+                                                sửa</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% } %>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <script>
+            let fadeLayout = document.getElementById('fade-in');
+            function showCreateForm() {
+                let createForm = document.getElementById('create-form');
+                createForm.classList.toggle("action");
+                fadeLayout.classList.toggle("action");
+            }
+        </script>
 </body>
 
 </html>

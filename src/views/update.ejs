@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Update page</title>
+</head>
+
+<body>
+    <%- include ('common/genneral.ejs') -%>
+        <div class="layout-opacity"></div>
+        <div class="edit-student">
+            <form action="/update-student" method="post" class="edit-form">
+                <div class="name from-group mb-3">
+                    <label for="name" class="form-label">Họ và Tên:</label><br>
+                    <input class="form-control" type="text" name="studentName" value="<%= dataStudent.studentName %>">
+                </div>
+                <div class="gender from-group mb-3">
+                    <label for="gender" class="form-label">Giới tính:</label><br>
+                    <input class="form-control" type="text" name="studentGender"
+                    value="<%= dataStudent.studentGender %>">
+                </div>
+                <div class="birthday from-group mb-3">
+                    <label for="birthday" class="form-label">Ngày sinh:</label><br>
+                    <input class="form-control" type="text" name="studentBirth"
+                    value="<%= dataStudent.studentBirthday %>">
+                </div>
+                <div class="address from-group mb-3">
+                    <label for="address" class="form-label">Địa chỉ:</label><br>
+                    <input class="form-control" type="text" name="studentAddress"
+                    value="<%= dataStudent.studentAddress %>">
+                </div>
+                <div class="email from-group mb-3">
+                    <label for="email" class="form-label">Email:</label><br>
+                    <input class="form-control" type="text" name="studentEmail"
+                    value="<%= dataStudent.studentEmail %>">
+                </div>
+                <br>
+                <input type="text" hidden name="studentId" value="<%= dataStudent.id %>">
+                <button type="submit" class="btn btn-success">Xác nhận</button>
+                <button type="button" class="btn btn-warning button-comeback">
+                    <a href="/home">Quay lại</a>
+                </button>
+            </form>
+        </div>
+</body>
+
+</html>

@@ -1,3 +1,7 @@
 @import "./login";
 @import "./register";
-@import "./home"
+@import "./home";
+
+* {
+    overflow-x: hidden;
+}
