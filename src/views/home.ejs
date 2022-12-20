@@ -33,8 +33,11 @@
                                 Thêm học sinh</button>
                             <form action="/home" method="get">
                                 <button type="submit" class="btn btn-warning btn-restart">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                        class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" 
+                                        fill="currentColor"
+                                        class="bi bi-arrow-clockwise" 
+                                        viewBox="0 0 16 16"
+                                    >
                                         <path fill-rule="evenodd"
                                             d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
                                         <path
@@ -111,7 +114,10 @@
                                     <td class="button-option d-flex">
                                         <form action="/delete-student" method="post">
                                             <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
-                                            <input type="text" hidden value="<%= dataStudent[i].id %>" name="studentId">
+                                            <input type="text" hidden 
+                                             value="<%= dataStudent[i].id %>" 
+                                             name="studentId"
+                                            >
                                         </form>
                                         <form action="/update-student/<%= dataStudent[i].id %>" method="get">
                                             <button type="submit" class="btn btn-info btn-sm">Chỉnh
