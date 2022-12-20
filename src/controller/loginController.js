@@ -8,11 +8,11 @@ let getLoginPage = (req, res) => {
 let registerPage = (req, res) => {
     return res.render('register.ejs')
 }
+
 let registeredUsers = async(req, res) => {
     const saltRounds = 10;
     let username = req.body.username;
     let password = req.body.password;
-    // const passHash = bcrypt.hashSync(password, saltRounds);
     await pool.execute('INSERT INTO `admin-login` (username, password) VALUES (?,?)',
      [username, password]); 
     return res.redirect('/')

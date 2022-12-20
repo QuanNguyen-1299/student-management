@@ -17,6 +17,7 @@ let createNewStudent = async (req, res) => {
         [studentName, studentGender, studentBirth, studentAddress, email]);
     return res.redirect('/home')
 }
+
 let editStudent = async (req, res) => {
     let id = req.params.id;
     let [data] = await pool.execute('SELECT * FROM `data-student` WHERE id = ?', [id]);
@@ -25,7 +26,7 @@ let editStudent = async (req, res) => {
 
 let updateStudent = async (req, res) => {
     let { studentName, studentGender, studentBirth, studentAddress, studentEmail, studentId } = req.body;
-    console.log(studentName,studentGender, studentBirth, studentAddress, studentEmail, studentId  )
+    console.log(studentName,studentGender, studentBirth, studentAddress, studentEmail, studentId)
     await pool.execute('UPDATE `data-student` SET studentName = ?, studentGender = ?, studentBirthday = ?, studentAddress = ?, studentEmail = ? WHERE id = ?',
         [studentName, studentGender, studentBirth, studentAddress, studentEmail, studentId]);
     return res.redirect('/home')
@@ -37,10 +38,6 @@ let searchStudent = async (req, res) => {
     let result = allData.filter( (student) => {
 		return student.studentName.toLowerCase().indexOf(nameSearch.toLowerCase()) !== -1
 	})
-    // const [rows, fields] = await pool.execute('SELECT * FROM `data-student` WHERE studentName = ?',
-    // [nameData]);
-    // cách mới hay hơn, nó truy xuất tất cả những tên có chứa kí tự người dùng nhập (tên, họ, tên đệm hoặc all)
-    // thay vì cách kia chỉ có thể tìm kiếm được nếu nhập đúng full họ và tên
     return res.render('home.ejs', {dataStudent: result})
 }
 
